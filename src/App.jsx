@@ -5,8 +5,7 @@ function App() {
  return (
   <>
       <Header/>
-
-      <h1>Hello World</h1>  
+      
       <Post 
         author="Carlos Oliveira"
         content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, quae saepe libero labore alias dolorum ad sapiente. Perspiciatis non et, suscipit animi officia asperiores itaque eligendi culpa consectetur ullam enim."
