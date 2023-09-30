@@ -9,7 +9,7 @@ import styles from './Post.module.css';
 import { useState } from 'react';
 
 export default function Post({ author, content, publishedAt }) {
-  const [comments, setComments] = useState(['Post muito legal!']);
+  const [comments, setComments] = useState([]);
   const [newCommentText, setNewCommentText] = useState('');
 
   const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", { locale: ptBR });
@@ -28,6 +28,14 @@ export default function Post({ author, content, publishedAt }) {
 
   function handleNewCommentChange() {
     setNewCommentText(event.target.value);
+  }
+
+  function deleteComment(commentToDelete) {
+    const commentsWithoutDeletedOne = comments.filter((comment) => {
+      return comment !== commentToDelete;
+    });
+
+    setComments(commentsWithoutDeletedOne);
   }
 
   return (
@@ -77,7 +85,7 @@ export default function Post({ author, content, publishedAt }) {
 
       <div className={styles.commentList}>
         {comments?.map((comment) => (
-          <Comment key={comment} content={comment} />
+          <Comment key={comment} content={comment} onDeleteComment={deleteComment} />
         ))}
       </div>
     </article>
