@@ -1,10 +1,10 @@
 import Header from './components/Header';
-import Post from './components/Post';
+import Post, { PostProps } from './components/Post';
 import Sidebar from './components/Sidebar';
 
 import styles from './App.module.css';
 
-const posts = [
+const posts: PostProps[] = [
   {
     id: 13452345,
     author: {
